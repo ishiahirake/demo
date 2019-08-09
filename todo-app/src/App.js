@@ -3,14 +3,19 @@ import logo from './logo.svg';
 // import './App.css';
 
 function Todo() {
+  const [input, setInput] = React.useState('')
+
   const [todos, setTodos] = React.useState([])
   const [finishedCount, setFinishedCount] = React.useState(0)
   const [cancelledCount, setCancelledCount] = React.useState(0)
 
   function handleAddTodo(event) {
-    const todoInput = document.getElementById('todo-input')
-    setTodos([...todos, todoInput.value])
-    todoInput.value = ''
+    setTodos([...todos, input])
+    setInput('')
+  }
+
+  function handleInputValueChange(event) {
+    setInput(event.target.value)
   }
 
   function handleFinishTodo(todo, index) {
@@ -47,7 +52,11 @@ function Todo() {
       </ul>
       <div>
         <label>
-          <input id="todo-input" name="todo-input" />
+          <input id="todo-input" 
+                 name="todo-input" 
+                 value={input} 
+                 onChange={handleInputValueChange}
+          />
         </label>
         <button onClick={handleAddTodo}>添加</button>
       </div>
