@@ -32,6 +32,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'row'
   },
   todoAction: {
+    right: 0
   }
 }))
 
@@ -82,20 +83,20 @@ function Todo() {
                   </ListItemIcon>
                   <ListItemText primary={todo}
                   />
-                  <ListItemSecondaryAction>
+                  <ListItemSecondaryAction classes={{ root: classes.todoAction }}>
                     <Grid className={classes.todoAction} container spacing={2}>
                       <Grid item>
-                      <Button variant="contained" 
-                              color="primary" 
-                              onClick={() => handleFinishTodo(todo, index)}>
-                                完成
+                        <Button variant="contained"
+                          color="secondary"
+                          onClick={() => handleCancelTodo(todo, index)}>
+                          取消
                       </Button>
                       </Grid>
                       <Grid item>
-                      <Button variant="contained" 
-                              color="secondary"
-                              onClick={() => handleCancelTodo(todo, index)}>
-                                取消
+                        <Button variant="contained"
+                          color="primary"
+                          onClick={() => handleFinishTodo(todo, index)}>
+                          完成
                       </Button>
                       </Grid>
                     </Grid>
