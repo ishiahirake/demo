@@ -3,14 +3,30 @@ import logo from './logo.svg';
 // import './App.css';
 
 function Todo() {
+  const [todos, setTodos] = React.useState([])
+
+  function handleAddTodo(event) {
+    const todoInput = document.getElementById('todo-input')
+    setTodos([...todos, todoInput.value])
+    todoInput.value = ''
+  }
+
   return (
     <div>
-      <ul></ul>
+      <ul>
+        {todos.map((todo, index) => {
+          return (
+            <li key={index}>
+              <span>{todo}</span>
+            </li>
+          )
+        })}
+      </ul>
       <div>
         <label>
-          <input name="todo" />
+          <input id="todo-input" name="todo-input" />
         </label>
-        <button>添加</button>
+        <button onClick={handleAddTodo}>添加</button>
       </div>
     </div>
   )
