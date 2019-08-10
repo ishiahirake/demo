@@ -22,7 +22,7 @@ import FolderIcon from '@material-ui/icons/Folder'
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(5),
-    width: '30%'
+    width: '40%'
   },
   paper: {
     padding: theme.spacing(3)
